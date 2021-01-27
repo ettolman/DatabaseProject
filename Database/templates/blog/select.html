@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Create, View, Update, or Remove Entries{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<form method="SoftwarePackage">
+
+    <form action="http://127.0.0.1:5000/create">
+         <button type="submit">Add a Software Package</button>
+    </form><br>
+
+    <form action="http://127.0.0.1:5000/createDeveloper">
+         <button type="submit">Add a Developer</button>
+    </form>
+
+  </form>
+{% endblock %}

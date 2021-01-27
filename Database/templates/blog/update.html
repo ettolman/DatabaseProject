@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit "{{ SoftwarePackage['Name'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="SoftwarePackage">
+    <label for="Name">Name</label>
+    <input name="Name" id="Name"
+      value="{{ request.form['Name'] or SoftwarePackage['Name'] }}" required>
+    <label for="Description">Description</label>
+    <textarea name="Description" id="Description">{{ request.form['Description'] or SoftwarePackage['Description'] }}</textarea>
+    <input type="submit" value="Save">
+  </form>
+  <hr>
+  <form action="{{ url_for('blog.delete', id=SoftwarePackage['idSoftwarePackage']) }}" method="SoftwarePackage">
+    <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+  </form>
+{% endblock %}

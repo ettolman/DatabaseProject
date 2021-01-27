@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Add a New Developer{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="Publisher">
+    <label><i>Categories with * must be filled in.</i></label>
+    
+    <label for="Publisher_Website">Add a website link*</label>
+    <input name="Publisher_Website" id="Publisher_Website" value="{{ request.form['Version'] }}" required><br>
+
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}

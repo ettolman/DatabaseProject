@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Add a New Software Package{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="SoftwarePackage">
+    <label><i>Categories with * must be filled in.</i></label>
+    <label for="Name">Name*</label>
+    <input name="Name" id="Name" value="{{ request.form['title'] }}" required>
+
+    <label for="Description">Description</label>
+    <input name="Description" id="Description" value="{{ request.form['Description'] }}" required>
+
+    <label for="Version">Version*</label>
+    <input name="Version" id="Version" value="{{ request.form['Version'] }}" required>
+
+    <label for="OpenSource">Is it open source?*</label>
+    <label>Yes</lable><input type="radio" name="OpenSource" value="yes"><br>
+    <label>No </lable><input type="radio" name="OpenSource" value="no"><br>
+
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}
