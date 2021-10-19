@@ -12,9 +12,9 @@ bp = Blueprint('blog', __name__)
 def index():
     db = get_db()
     posts = db.execute(
-        'SELECT p.idSoftwarePackage, Name, Description, username'
+        'SELECT p.idSoftwarePackage, Package_Name, Package_Description'
         ' FROM SoftwarePackage p JOIN user u ON p.idSoftwarePackage = u.id'
-        ' ORDER BY created DESC'
+        #' ORDER BY created_time DESC'
     ).fetchall()
     return render_template('blog/index.html', posts=posts)
 
@@ -49,8 +49,7 @@ def create():
     if request.method == 'POST':
         Name = request.form['Name']
         Description = request.form['Description']
-	Version = request.form['Version']
-	OpenSource = request.form['OpenSource']
+	
         error = None
 
         if not Name:
@@ -66,7 +65,7 @@ def create():
                 (Name, Description, g.user['id'])
             )
             db.commit()
-            return redirect(url_for('blog.select'))
+            return redirect(url_for('blog.index'))
 
     return render_template('blog/create.html')
 
