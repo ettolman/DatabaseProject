@@ -11,6 +11,8 @@
     <label for="Publisher_Website">Add a website link*</label>
     <input name="Publisher_Website" id="Publisher_Website" value="{{ request.form['Version'] }}" required><br>
 
+    <label for="Publisher_Name">Add a publisher name</label>
+    <input name="Publisher_Name" id="Publisher_Name" value="{{ request.form['Publisher_name'] }}"> <br>
     <input type="submit" value="Save">
   </form>
 {% endblock %}
